@@ -4,27 +4,49 @@ import java.util.List;
 
 public class Exercise001 {
     public String capitalizeWord(String word) {
-        // Add your code here
-        return "";
+        String retWord = word;
+
+        if(!Character.isUpperCase(word.charAt(0)))
+        {
+            retWord = word.substring(0,1).toUpperCase() + word.substring(1);
+        }
+
+        return retWord;
     }
 
     public String generateInitials(String firstName, String lastName) {
-        // Add your code here
-        return "";
+        String retStr = new String();
+        String fChar = firstName.substring(0,1).toUpperCase();
+        String sChar = lastName.substring(0,1).toUpperCase();
+        retStr = fChar + "." + sChar;
+
+        return retStr;
     }
 
     public double addVat(double originalPrice, double vatRate) {
-        // Add your code here
-        return 0.0;
+        double ret = originalPrice + (originalPrice * (vatRate / 100));
+        double retOut = (double) Math.round(ret * 100) / 100;
+        return retOut;
     }
 
     public String reverse(String sentence) {
-        // Add your code here
-        return "";
+        StringBuilder outStrBuild = new StringBuilder();
+        outStrBuild.append(sentence);
+        outStrBuild.reverse();
+        return outStrBuild.toString();
     }
 
     public int countLinuxUsers(List<User> users) {
-        // Add your code here
-        return 0;
+        int ret = 0;
+
+        for(User u : users)
+        {
+            if(u.getType().compareTo("Linux")==0)
+            {
+                ret++;
+            }
+        }
+
+        return ret;
     }
 }
