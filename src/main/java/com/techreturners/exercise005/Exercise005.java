@@ -7,7 +7,8 @@ public class Exercise005 {
 
     public boolean isPangram(String input) {
         boolean ret = false;
-        if(input.length() >= 26)
+
+        if((input != null) && (input.length() >= 26))
         {
             Set<Character> chars = new HashSet<>();
             // for all chars in string
@@ -23,7 +24,6 @@ public class Exercise005 {
             // *IF* all characters of alphabet are present - set should be size == 26
             ret = chars.size()==26;
         }
-
         return ret;
     }
 

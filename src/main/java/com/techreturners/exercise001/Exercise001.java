@@ -4,49 +4,56 @@ import java.util.List;
 
 public class Exercise001 {
     public String capitalizeWord(String word) {
-        String retWord = word;
-        // if first char not already an uppercase - change it
-        if(!Character.isUpperCase(word.charAt(0)))
+        String retWord = new String();
+        if(word!=null)
         {
-            retWord = word.substring(0,1).toUpperCase() + word.substring(1);
+            retWord = word;
+            if(!Character.isUpperCase(word.charAt(0)))
+            {
+                retWord = word.substring(0,1).toUpperCase() + word.substring(1);
+            }
         }
-
+        // if first char not already an uppercase - change it
         return retWord;
     }
 
     public String generateInitials(String firstName, String lastName) {
-        String retStr = new String();
-        String fChar = firstName.substring(0,1).toUpperCase();
-        String sChar = lastName.substring(0,1).toUpperCase();
-        retStr = fChar + "." + sChar;
-
-        return retStr;
+        return firstName.substring(0,1).toUpperCase() + "." + lastName.substring(0,1).toUpperCase();
     }
 
     public double addVat(double originalPrice, double vatRate) {
-        double ret = originalPrice + (originalPrice * (vatRate / 100));
+        double retOut = originalPrice;
+        if(vatRate != 0)
+        {
+            double ret = originalPrice + (originalPrice * (vatRate / 100));
+            retOut = (double) Math.round(ret * 100) / 100;
+        }
         // set 2 decimal places by using divide / multiply by 100
-        double retOut = (double) Math.round(ret * 100) / 100;
         return retOut;
     }
 
     public String reverse(String sentence) {
-        // use stringbuilder...
-        StringBuilder outStrBuild = new StringBuilder();
-        outStrBuild.append(sentence);
-        // ... and just call it's reverse method
-        outStrBuild.reverse();
-        return outStrBuild.toString();
+        String retString = new String();
+        if(sentence != null)
+        {
+            StringBuilder outStrBuild = new StringBuilder();
+            outStrBuild.append(sentence).reverse();
+            retString = outStrBuild.toString();
+        }
+        return retString;
     }
 
     public int countLinuxUsers(List<User> users) {
         int ret = 0;
 
-        for(User u : users)
+        if(users != null)
         {
-            if(u.getType().compareTo("Linux")==0)
+            for(User u : users)
             {
-                ret++;
+                if(u.getType().equals("Linux"))
+                {
+                    ret++;
+                }
             }
         }
 
