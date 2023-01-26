@@ -3,6 +3,8 @@ package com.techreturners.exercise001;
 import java.util.List;
 
 public class Exercise001 {
+
+    // test commit
     public String capitalizeWord(String word) {
         String retWord = new String();
         if(word!=null)
